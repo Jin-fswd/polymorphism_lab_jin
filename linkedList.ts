@@ -28,8 +28,13 @@ class Node {
   
     // Should return number of Nodes in List
     get length(): number {
-      // implement this part yourself
-      return 123
+        let count = 0;
+        let node: Node | null = this.head;
+        while (node) {
+            count++;
+            node = node.next;
+        }
+        return count
     }
   
    // Convenience method that returns a Node at a given index
@@ -47,15 +52,20 @@ class Node {
         node = node.next;
       }
       throw new Error("Error: Index out of bounds");
-    }
+    }   
   
     compare(leftPos: number, rightPos: number): boolean {
-      // Implement this part yourself
-      return true /*he */
+        const left = this.at(leftPos);
+        const right = this.at(rightPos);
+        return left.data > right.data;
     }
   
     swap(leftPos: number, rightPos: number): void {
-      // Implement this part yourself
+        const left = this.at(leftPos);
+        const right = this.at(rightPos);
+        const temp = left.data;
+        left.data = right.data;
+        right.data = temp;
     }
   
     print(): void {

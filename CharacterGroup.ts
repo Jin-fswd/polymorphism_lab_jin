@@ -20,4 +20,5 @@ export class CharacterGroup implements ISortable{
         [dataArr[left], dataArr[right]] = [dataArr[right], dataArr[left]];
         this.data = dataArr.join('');
     }
+
 }
