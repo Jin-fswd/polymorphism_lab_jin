@@ -1,43 +1,71 @@
-class SortUtil {
-    collection: number[] | string | LinkedList;
-  
-    constructor(collection: number[] | string | LinkedList) {
-      this.collection = collection;
-    }
-  
-    sort(): void {
-      const { length } = this.collection;
-      let isSorted = false;
-      let lastUnsorted = length - 1;
-      while (!isSorted) {
-        isSorted = true;
-        for (let i = 0; i < lastUnsorted; i++) {
-          // HANDLE LINKED LIST LOGIC HERE 
-          if (this.collection instanceof LinkedList) {
-            // HELP! -Sarah
-          }
-  
-          // HANDLE LIST OF NUMBERS LOGIC HERE
-          // I GOT IT TO WORK WITH ARRAY OF NUMBERS
-          if (this.collection instanceof Array) {
-            if (this.collection[i] > this.collection[i + 1]) {
-              let tempLeft = collection[i];
-              this.collection[i] = this.collection[i+1];
-              this.collection[i+1] = tempLeft;
-              isSorted = false;
-            }
-          }
-  
-          // HANDLE STRING LOGIC HERE
-          if (typeof this.collection === "string") {
-            // HELP! -Sarah
-          }
-        }
-        lastUnsorted--;
-      }
+import { ISortable } from "./ISortable";
+
+class Node {
+    next: Node | null = null;
+    data: number;
+    constructor(data: number) {
+      this.data = data;
     }
   }
   
-  const sortUtil = new SorterUtil([10, 3, -5, 0]);
-  sortUtil.sort();
-  console.log(sorter.collection);
+  export class LinkedListGroup implements ISortable {
+    head: Node | null = null;
+  
+    // Create Node out of data and attach to end of list
+    add(data: number): void {
+      const node = new Node(data);
+      if (!this.head) {
+        this.head = node;
+        return;
+      }
+  
+      let tail = this.head;
+      while (tail.next) {
+        tail = tail.next;
+      }
+      tail.next = node;
+    }
+  
+    // Should return number of Nodes in List
+    get length(): number {
+      // implement this part yourself
+      return 123
+    }
+  
+   // Convenience method that returns a Node at a given index
+    at(index: number): Node {
+      if (!this.head) {
+        throw new Error("Error: Index out of bounds");
+      }
+      let counter = 0;
+      let node: Node | null = this.head;
+      while (node) {
+        if (counter === index) {
+          return node;
+        }
+        counter++;
+        node = node.next;
+      }
+      throw new Error("Error: Index out of bounds");
+    }
+  
+    compare(leftPos: number, rightPos: number): boolean {
+      // Implement this part yourself
+      return true /*he */
+    }
+  
+    swap(leftPos: number, rightPos: number): void {
+      // Implement this part yourself
+    }
+  
+    print(): void {
+      if (!this.head) {
+        return;
+      }
+      let node: Node | null = this.head;
+      while (node) {
+        console.log(node.data);
+        node = node.next;
+      }
+    }
+  }
