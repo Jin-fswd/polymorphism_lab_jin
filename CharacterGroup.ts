@@ -21,4 +21,7 @@ export class CharacterGroup implements ISortable{
         this.data = dataArr.join('');
     }
 
+    print(): void {
+        console.log(this.data);
+    }
 }

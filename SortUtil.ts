@@ -32,7 +32,16 @@ const linkedListGroup = new LinkedListGroup();
 linkedListGroup.add(3);
 linkedListGroup.add(1);
 linkedListGroup.add(2);
-
 const linkedListSorter = new SortUtil(linkedListGroup);
 linkedListSorter.sort();
 linkedListGroup.print(); 
+
+const numberGroup = new NumberGroup([3, 1, 2]);
+const numberGroupSorter = new SortUtil(numberGroup);
+numberGroupSorter.sort();
+numberGroup.print();
+
+const characterGroup = new CharacterGroup("cba");
+const characterGroupSorter = new SortUtil(characterGroup);
+characterGroupSorter.sort();
+characterGroup.print();

@@ -20,4 +20,8 @@ export class NumberGroup implements ISortable {
         this.data[left] = this.data[right];
         this.data[right] = temp;
     }
+
+    print(): void {
+        console.log(this.data.join(" "));
+    }
 }
